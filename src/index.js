@@ -1,5 +1,5 @@
 import {getWeatherData} from './fetchData'
-
+import { displayWeather } from './displayWeather'
 
 const submitButton=document.querySelector('.submitButton')
 const locationInput=document.querySelector('.location-input')
@@ -15,8 +15,10 @@ submitButton.addEventListener('click',(e)=>{
    const locationData=getWeatherData(location)
    // check if found 
    locationData.then((LocationObj)=>{
-      console.log(LocationObj)
+      displayWeather(LocationObj)
+      
    })
+   document.querySelector('.location-input').value=''
 })
 
 
