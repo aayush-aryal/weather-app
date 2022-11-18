@@ -5,9 +5,11 @@ export async function getWeatherData(userinput){
     try {
         let response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userinput}&units=metric&APPID=0835900e4fbbbc9b5696bda5ee057129`,{mode:'cors'})
         let responseweatherAPIobject=await response.json()
+        console.log(responseweatherAPIobject)
         let filteredObject={temperature:
-            responseweatherAPIobject.main.temp,
+            responseweatherAPIobject.main.feels_like,
             name:responseweatherAPIobject.name ,
+            humidity:responseweatherAPIobject.main.humidity,
             temp_min:responseweatherAPIobject.main.temp_min ,
             temp_max:responseweatherAPIobject.main.temp_max,
             main:responseweatherAPIobject.weather[0].main,
