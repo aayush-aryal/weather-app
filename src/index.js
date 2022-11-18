@@ -13,6 +13,8 @@ submitButton.addEventListener('click',(e)=>{
    if (location=='')return 
    // else make api call
    const locationData=getWeatherData(location)
+   // add loading class
+   document.querySelector('.weather-info').classList.add('loading')
    // check if found 
    locationData.then((LocationObj)=>{
       displayWeather(LocationObj)
