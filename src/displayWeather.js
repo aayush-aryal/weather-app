@@ -13,7 +13,7 @@ export function displayWeather(weatherObject){
     // temperature
     const temperature=document.createElement('div')
     temperature.classList.add('weatherDetails','temp')
-    temperature.textContent=weatherObject.temperature+ " °C"
+    temperature.textContent="Feels like: "+weatherObject.temperature+ " °C"
     weatherInfo.appendChild(temperature)
     // minimum 
     const mintemp=document.createElement('div')
@@ -25,6 +25,17 @@ export function displayWeather(weatherObject){
     maxtemp.classList.add('weatherDetails','maxtemp')
     maxtemp.textContent="Maximum: "+weatherObject.temp_max +"°C"
     weatherInfo.append(maxtemp)
+    // wind
+    const wind=document.createElement('div')
+    wind.classList.add('weatherDetails','wind')
+    wind.textContent= "Wind: "+weatherObject.wind + " m/s"
+    weatherInfo.append(wind)
+    // humidity
+    const humidity=document.createElement('div')
+    humidity.classList.add('weatherDetails','humidity')
+    humidity.textContent= "Humidity: "+ weatherObject.humidity + "%"
+    weatherInfo.append(humidity)
+
     // description
     const description=document.createElement('div')
     description.classList.add('weatherDetails','description')
