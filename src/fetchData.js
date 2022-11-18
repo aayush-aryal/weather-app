@@ -1,7 +1,7 @@
+import './styles.css'
 // add the needed methods to fetch weather data and export object module
 
 export async function getWeatherData(userinput){
-    userinput=userinput.toString()
     try {
         let response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userinput}&units=metric&APPID=0835900e4fbbbc9b5696bda5ee057129`,{mode:'cors'})
         let responseweatherAPIobject=await response.json()
@@ -15,12 +15,13 @@ export async function getWeatherData(userinput){
             icon:responseweatherAPIobject.weather[0].icon,
             wind:responseweatherAPIobject.wind.speed
         }
-        // get icon through http://openweathermap.org/img/w/10d.png
+        document.querySelector('.weather-info').classList.remove('loading')
         return filteredObject
 
     }catch (err){
-        console.error(err)
-       
+        let filteredObject={name:'unavailable'}
+        return filteredObject
+
     }
    
 }
