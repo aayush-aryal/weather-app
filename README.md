@@ -1,1 +1,1 @@
-uses openWeather api to display weather
+# weather-app
